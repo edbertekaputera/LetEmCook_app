@@ -121,7 +121,7 @@ class HomePage extends StatelessWidget {
                            ),
                         ),
                         Positioned(
-                           bottom: 70,
+                           top: 640,
                            child: HomeRecipeButton()
                         ),
                      ],

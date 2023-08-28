@@ -16,7 +16,7 @@ class SegmentationServices {
          return response.body;
       } else {
          // Fail
-         return '{"status":"fail"}';
+         return '{"status":"fail with response code ${response.statusCode}"}';
       }
    }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/controllers/ingredients_controller.dart';
+import 'package:flutter_app/views/recipe/recipe_page.dart';
 import 'package:get/get.dart';
 
 class HomeRecipeButton extends StatelessWidget {
@@ -40,7 +41,7 @@ class HomeRecipeButton extends StatelessWidget {
                }
                ingredientStr = ingredientStr.substring(0, ingredientStr.length - 2);
                ingredientsController.reset();
-               // Get to recipe with ingredientStr param
+               Get.to(RecipePage(ingredients: ingredientStr));
             }
          },
          child: const Padding(
