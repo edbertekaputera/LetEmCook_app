@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/camera/camera_screen.dart';
+import 'package:flutter_app/views/camera/camera_page.dart';
 import 'package:flutter_app/global_bindings.dart';
 import 'package:get/route_manager.dart';
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
    Widget build(BuildContext context) {
       return GetMaterialApp(
          debugShowCheckedModeBanner: false,
-         home: const CameraScreen(),
+         home: const CameraPage(),
          title: "Camera App",
          initialBinding: GlobalBindings(),
       );
