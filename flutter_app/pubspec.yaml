@@ -41,8 +41,8 @@ dependencies:
   camera: ^0.9.8+1
   image: ^3.2.0
 
-  # PyTorch
-  pytorch_mobile: ^0.2.2
+  # API
+  http: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -67,8 +67,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  assets:
-    - assets/models/vit_mla_cpu.pt
+  # assets:
+    # - assets/models/vit_mla_cpu.pt
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/scan_controller.dart';
+import 'package:flutter_app/controllers/scan_controller.dart';
 import 'package:get/get.dart';
 
 class CaptureButton extends GetView<ScanController> {

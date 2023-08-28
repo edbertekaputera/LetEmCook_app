@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/camera/capture_button.dart';
+import 'package:flutter_app/views/camera/capture_button.dart';
 
 import 'camera_viewer.dart';
 
-class CameraScreen extends StatelessWidget {
-   const CameraScreen({Key? key}): super(key: key);
+class CameraPage extends StatelessWidget {
+   const CameraPage({Key? key}): super(key: key);
 
    @override
    Widget build(BuildContext context) {

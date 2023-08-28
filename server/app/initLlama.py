@@ -1,7 +1,9 @@
 from langchain.llms import LlamaCpp
 from langchain import PromptTemplate, LLMChain
+import json
 
-def initLlama():
+# Initializes Llama
+def init_llama():
 	B_INST, E_INST = "[INST]", "[/INST]"
 	B_SYS, E_SYS = "<<SYS>>\n", "\n<</SYS>>\n\n"
 
@@ -35,3 +37,9 @@ def initLlama():
 	llm_context_chain = LLMChain(llm=llm, prompt=prompt_with_context)
 
 	return llm_context_chain
+
+# Initialize json from file
+def init_json(file_path:str) -> dict[str, str]:
+	with open(file_path, mode="r") as file:
+		data = json.load(file)
+	return data

@@ -2,44 +2,20 @@ PODS:
   - camera_avfoundation (0.0.1):
     - Flutter
   - Flutter (1.0.0)
-  - LibTorch (1.8.0):
-    - LibTorch/Core (= 1.8.0)
-  - LibTorch/Core (1.8.0):
-    - LibTorch/Torch
-  - LibTorch/Torch (1.8.0)
-  - path_provider_foundation (0.0.1):
-    - Flutter
-    - FlutterMacOS
-  - pytorch_mobile (0.0.1):
-    - Flutter
-    - LibTorch (~> 1.8.0)
 
 DEPENDENCIES:
   - camera_avfoundation (from `.symlinks/plugins/camera_avfoundation/ios`)
   - Flutter (from `Flutter`)
-  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
-  - pytorch_mobile (from `.symlinks/plugins/pytorch_mobile/ios`)
-
-SPEC REPOS:
-  trunk:
-    - LibTorch
 
 EXTERNAL SOURCES:
   camera_avfoundation:
     :path: ".symlinks/plugins/camera_avfoundation/ios"
   Flutter:
     :path: Flutter
-  path_provider_foundation:
-    :path: ".symlinks/plugins/path_provider_foundation/darwin"
-  pytorch_mobile:
-    :path: ".symlinks/plugins/pytorch_mobile/ios"
 
 SPEC CHECKSUMS:
   camera_avfoundation: 3125e8cd1a4387f6f31c6c63abb8a55892a9eeeb
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  LibTorch: d7724112589515bedd5eadf14a9db5b1d62d8a34
-  path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
-  pytorch_mobile: cdb1566b9883c59662d443e904db6674e829dd84
 
 PODFILE CHECKSUM: 35b63c0da16fca1fe91d42317bc84922d8435db3
 

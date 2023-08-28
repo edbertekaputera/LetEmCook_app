@@ -1,24 +1,23 @@
 // ignore_for_file: avoid_print
 
-import 'dart:typed_data';
-
+import 'package:flutter_app/views/segmentation/segmentation_page.dart';
+import 'package:get/get.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/services.dart';
-import 'package:get/state_manager.dart';
 import 'package:image/image.dart' as img;
 
 class ScanController extends GetxController {
    final RxBool _isInitialized = RxBool(false);
    late CameraController _cameraController;
    late List<CameraDescription> _cameras;
-   int _currentFrameNum = 0;
    final RxBool _isOn = RxBool(false);
-   final RxList<Uint8List> _currentFrame = RxList([]);
-   static const MethodChannel _channel = MethodChannel("LetHimCook_CHANNEL");
+   // ignore: prefer_final_fields
+   late Uint8List _currentFrame;
+   int _currentFrameNum = 0;
 
    bool get isInitialized => _isInitialized.value;
    CameraController get cameraController => _cameraController;
-   RxList<Uint8List> get currentFrame => _currentFrame;
+   Uint8List get currentFrame => _currentFrame;
 
    @override
    void onInit() {
@@ -38,11 +37,12 @@ class ScanController extends GetxController {
       _cameras = await availableCameras();
       _cameraController = CameraController(_cameras[0], ResolutionPreset.medium);
       _cameraController.initialize().then((_) {
+         _cameraController.value = _cameraController.value.copyWith(previewSize: const Size(480,480));
          _isInitialized.value = true;
          _isOn.value = true;
          // Camera Image Stream
          _cameraController.startImageStream((frame) {
-            if ( _isOn.value && ++_currentFrameNum % 10 == 0) {
+            if ( _isOn.value && ++_currentFrameNum % 5 == 0) {
                _currentFrameNum = 0;
                handleImage(frame);
             }
@@ -66,22 +66,21 @@ class ScanController extends GetxController {
    void handleImage(CameraImage frame) {
       img.Image image = img.Image.fromBytes(frame.width, frame.height, frame.planes[0].bytes, format: img.Format.bgra);
       Uint8List jpeg = Uint8List.fromList(img.encodeJpg(image));
-      print(frame.width);
-      print(frame.height);
       print("Image Capture!");
-      _currentFrame.clear();
-      _currentFrame.add(jpeg);
-      _currentFrame.refresh();
       print(jpeg.length);
+      _currentFrame = jpeg;
    }
 
+   // Capture
    void capture() {
-      _isOn.value = !_isOn.value;
-      print(_isOn.value? "Started" : "Stopped");
+      _isOn.value =false;
+      print("Stopped");
+      Get.to(SegmentationPage(frame: _currentFrame));
    }
 
-   Future<Uint8List>? getSegmentation(Uint8List img) async {
-      return _channel.invokeMethod<Uint8List>("getSegmentation")
-      .then<Uint8List>((Uint8List? value) => value ?? img);
+   // Reset
+   void reset() {
+      _isOn.value = true;
+      _currentFrameNum = 0;
    }
 }
