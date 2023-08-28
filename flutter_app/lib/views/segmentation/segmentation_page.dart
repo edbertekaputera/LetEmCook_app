@@ -10,12 +10,12 @@ import 'package:flutter_app/views/segmentation/cancel_button.dart';
 import 'package:get/get.dart';
 
 class SegmentationPage extends StatelessWidget {
-   final segmentationController = Get.put(SegmentationController());
-   final scanController = Get.put(ScanController());
+   final _segmentationController = Get.put(SegmentationController());
+   final _scanController = Get.put(ScanController());
 
    // Constructor
    SegmentationPage({ required Uint8List frame, Key? key }) : super(key: key) {
-      segmentationController.fetchData(frame);
+      _segmentationController.fetchData(frame);
    }
    
    @override
@@ -27,7 +27,7 @@ class SegmentationPage extends StatelessWidget {
             leading: BackButton(
                color: Colors.white,
                onPressed: () {
-                  scanController.reset();
+                  _scanController.reset();
                   Get.to(const CameraPage());
                },
             ),
@@ -85,7 +85,7 @@ class SegmentationPage extends StatelessWidget {
                               )
                            ),
                            Padding(
-                              padding: const EdgeInsets.only(top: 450),
+                              padding: const EdgeInsets.only(top: 450, bottom: 110),
                               child: GridView.builder(
                                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                                     crossAxisCount: 2,

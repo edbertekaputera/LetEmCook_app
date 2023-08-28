@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/views/homepage/home_page.dart';
+import 'package:flutter_app/controllers/ingredients_controller.dart';
 import 'package:get/get.dart';
 
-class SegmentationCancelButton extends StatelessWidget {
-   const SegmentationCancelButton({Key? key}) : super(key: key);
+class HomeRecipeButton extends StatelessWidget {
+   final ingredientsController = Get.put(IngredientsController());
+
+   HomeRecipeButton({Key? key}) : super(key: key);
 
    @override
    Widget build(BuildContext context) {
       return TextButton(
-         
          style: ButtonStyle(
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                RoundedRectangleBorder(
@@ -30,19 +31,33 @@ class SegmentationCancelButton extends StatelessWidget {
             ),
          ),
          onPressed: () {
-            Get.to(HomePage());
+            if (ingredientsController.ingredients.length < 3) {
+               Get.snackbar("Fail to generate recipe", "Please enter at least 3 ingredients.");
+            } else {
+               String ingredientStr = "";
+               for (String element in ingredientsController.ingredients) {
+                  ingredientStr += "$element, ";
+               }
+               ingredientStr = ingredientStr.substring(0, ingredientStr.length - 2);
+               ingredientsController.reset();
+               // Get to recipe with ingredientStr param
+            }
          },
          child: const Padding(
-            padding: EdgeInsets.only(top: 10, bottom: 10, left: 45, right: 45),
+            padding: EdgeInsets.only(top: 5, bottom: 5, left: 35, right: 35),
             child: Row(
                children: [
-                  Icon(Icons.cancel),
-                  SizedBox(width: 10),
+                  Icon(
+                     Icons.food_bank_rounded, 
+                     size: 50,
+                  ),
+                  SizedBox(width: 15),
                   Text(
-                     'Cancel', 
+                     'Generate Recipe', 
                      style: TextStyle(
                         color: Colors.white,
-                        fontSize: 15
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold
                      ),
                   ),
                ],

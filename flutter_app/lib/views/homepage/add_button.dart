@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/views/homepage/home_page.dart';
+import 'package:flutter_app/controllers/ingredients_controller.dart';
 import 'package:get/get.dart';
 
-class SegmentationCancelButton extends StatelessWidget {
-   const SegmentationCancelButton({Key? key}) : super(key: key);
+class HomeAddButton extends StatelessWidget {
+   final ingredientsController = Get.put(IngredientsController());
+
+   HomeAddButton({Key? key}) : super(key: key);
 
    @override
    Widget build(BuildContext context) {
       return TextButton(
-         
          style: ButtonStyle(
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                RoundedRectangleBorder(
@@ -30,16 +31,16 @@ class SegmentationCancelButton extends StatelessWidget {
             ),
          ),
          onPressed: () {
-            Get.to(HomePage());
+            ingredientsController.addIngredientsFromTextBox();
          },
          child: const Padding(
-            padding: EdgeInsets.only(top: 10, bottom: 10, left: 45, right: 45),
+            padding: EdgeInsets.only(top: 10, bottom: 10, left: 15, right: 15),
             child: Row(
                children: [
-                  Icon(Icons.cancel),
+                  Icon(Icons.add_box),
                   SizedBox(width: 10),
                   Text(
-                     'Cancel', 
+                     'Add', 
                      style: TextStyle(
                         color: Colors.white,
                         fontSize: 15
