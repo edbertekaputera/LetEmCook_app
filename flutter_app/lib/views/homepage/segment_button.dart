@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/views/homepage/home_page.dart';
+import 'package:flutter_app/controllers/scan_controller.dart';
+import 'package:flutter_app/views/camera/camera_page.dart';
 import 'package:get/get.dart';
 
-class SegmentationCancelButton extends StatelessWidget {
-   const SegmentationCancelButton({Key? key}) : super(key: key);
+class HomeSegmentButton extends StatelessWidget {
+   final _scanController = Get.put(ScanController());
+   HomeSegmentButton({Key? key}) : super(key: key);
 
    @override
    Widget build(BuildContext context) {
       return TextButton(
-         
          style: ButtonStyle(
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                RoundedRectangleBorder(
@@ -30,16 +31,17 @@ class SegmentationCancelButton extends StatelessWidget {
             ),
          ),
          onPressed: () {
-            Get.to(HomePage());
+            _scanController.reset();
+            Get.to(const CameraPage());
          },
          child: const Padding(
-            padding: EdgeInsets.only(top: 10, bottom: 10, left: 45, right: 45),
+            padding: EdgeInsets.only(top: 10, bottom: 10, left: 70, right: 70),
             child: Row(
                children: [
-                  Icon(Icons.cancel),
+                  Icon(Icons.camera_alt),
                   SizedBox(width: 10),
                   Text(
-                     'Cancel', 
+                     'Use Camera', 
                      style: TextStyle(
                         color: Colors.white,
                         fontSize: 15

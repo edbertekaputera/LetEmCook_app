@@ -28,4 +28,12 @@ class SegmentationData {
       _labels = (decodedJson["labelmap"] as List);
    }
 
+   List<String> getAllLabels() {
+      List<String> strList = [];
+      for (var element in _labels) {
+         strList.add(element["label"]);
+      }
+      return strList;
+   }
+
 }

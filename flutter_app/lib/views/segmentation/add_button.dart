@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/controllers/ingredients_controller.dart';
 import 'package:flutter_app/controllers/segmentation_controller.dart';
+import 'package:flutter_app/views/homepage/home_page.dart';
 import 'package:get/get.dart';
 
 class SegmentationAddButton extends StatelessWidget {
-   final segmentationController = Get.put(SegmentationController());
-   // final ingredientsController = Get.put(SegmentationController());
+   final _segmentationController = Get.put(SegmentationController());
+   final _ingredientsController = Get.put(IngredientsController());
 
    SegmentationAddButton({Key? key}) : super(key: key);
 
@@ -32,7 +34,11 @@ class SegmentationAddButton extends StatelessWidget {
             ),
          ),
          onPressed: () {
-            // action();
+            _ingredientsController.addIngredientsFromList(
+               _segmentationController.data.getAllLabels()
+            );
+            
+            Get.to(HomePage());
          },
          child: const Padding(
             padding: EdgeInsets.only(top: 10, bottom: 10, left: 15, right: 15),

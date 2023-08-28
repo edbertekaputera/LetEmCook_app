@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/views/camera/camera_page.dart';
 import 'package:flutter_app/global_bindings.dart';
+import 'package:flutter_app/views/homepage/home_page.dart';
 import 'package:get/route_manager.dart';
 
 void main() {
@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
    Widget build(BuildContext context) {
       return GetMaterialApp(
          debugShowCheckedModeBanner: false,
-         home: const CameraPage(),
-         title: "Camera App",
+         home: HomePage(),
+         title: "Let Him Cook! App",
          initialBinding: GlobalBindings(),
       );
    }
