@@ -4,7 +4,10 @@ import 'package:get/get.dart';
 import '../../controllers/scan_controller.dart';
 
 class CameraViewer extends StatelessWidget {
-   const CameraViewer({Key? key}): super(key: key);
+   // ignore: unused_field
+   final _scanController = Get.put(ScanController());
+
+   CameraViewer({Key? key}): super(key: key);
 
    @override
    Widget build(BuildContext context) {

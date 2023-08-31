@@ -17,7 +17,7 @@ class HomeSegmentButton extends StatelessWidget {
                )
             ),
             backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-            foregroundColor: MaterialStateProperty.all<Color>(Colors.blue.shade900),
+            foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
             overlayColor: MaterialStateProperty.resolveWith<Color?>(
                (Set<MaterialState> states) {
                if (states.contains(MaterialState.hovered)) {
@@ -32,15 +32,15 @@ class HomeSegmentButton extends StatelessWidget {
          ),
          onPressed: () {
             _scanController.reset();
-            Get.to(const CameraPage());
+            Get.to(CameraPage());
          },
-         child: const Padding(
-            padding: EdgeInsets.only(top: 10, bottom: 10, left: 70, right: 70),
+         child: Padding(
+            padding: EdgeInsets.only(top: Get.height/92.6, bottom: Get.height/92.6, left: Get.width/6.114, right: Get.width/6.114),
             child: Row(
                children: [
-                  Icon(Icons.camera_alt),
-                  SizedBox(width: 10),
-                  Text(
+                  const Icon(Icons.camera_alt, color: Colors.white,),
+                  SizedBox(width: Get.width/42.8),
+                  const Text(
                      'Use Camera', 
                      style: TextStyle(
                         color: Colors.white,

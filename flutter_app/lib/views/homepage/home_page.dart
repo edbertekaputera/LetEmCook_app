@@ -15,8 +15,12 @@ class HomePage extends StatelessWidget {
    Widget build(BuildContext context){
       return Scaffold(
          appBar: AppBar(
-            title: const Text("Let Him Cook!"),
-            automaticallyImplyLeading: false,
+            title: const Text("Let Em Cook!"),
+            backgroundColor: Colors.red,
+            leading: Image.asset(
+               'assets/images/icon_transparent.png',
+               fit: BoxFit.cover,
+            )
          ),
          body: SafeArea(
             child: GetX<IngredientsController>(
@@ -25,10 +29,10 @@ class HomePage extends StatelessWidget {
                      alignment: Alignment.center,
                      children: [
                         Positioned(
-                           top: 20,
-                           left: 10,
+                           top: Get.height/46.3,
+                           left: Get.width/42.8,
                            child: SizedBox(
-                              width: 290,
+                              width: Get.width/1.476,
                               child: TextField( 
                                  decoration: const InputDecoration(
                                     border: OutlineInputBorder(),
@@ -42,12 +46,12 @@ class HomePage extends StatelessWidget {
                            ),
                         ),
                         Positioned(
-                           top: 20,
-                           left: 310,
+                           top: Get.height/46.3,
+                           left: Get.width/1.381,
                            child: HomeAddButton(),
                         ),
                         Positioned(
-                           top: 100,
+                           top: Get.height/9.26,
                            child: Row(
                               children: [
                                  Container(
@@ -56,11 +60,11 @@ class HomePage extends StatelessWidget {
                                        color: Colors.grey.shade300,
                                     ),
                                     child: Padding(
-                                       padding: const EdgeInsets.only(top: 18, bottom: 18, left: 25, right: 25),
+                                       padding: EdgeInsets.only(top: Get.height/51.444, bottom: Get.height/51.444, left: Get.width/17.12, right: Get.width/17.12),
                                        child: Row(
                                           children: [
                                              const Icon(Icons.fastfood_rounded),
-                                             const SizedBox(width: 10),
+                                             SizedBox(width: Get.width/42.8),
                                              Text(
                                                 '${controller.ingredients.length}', 
                                                 style: const TextStyle(
@@ -73,16 +77,16 @@ class HomePage extends StatelessWidget {
                                        ),
                                     )
                                  ),
-                                 const SizedBox(width: 20),
+                                 SizedBox(width: Get.width/21.4),
                                  HomeSegmentButton(),
                               ],
                            ),
                         ),
                         Positioned(
-                           top: 180,
+                           top: Get.height/5.156,
                            child: Container(
-                              width: 400,
-                              height: 450,
+                              width: Get.width/1.07,
+                              height: Get.height/2.062,
                               alignment: Alignment.topLeft,
                               decoration: BoxDecoration(
                                  color: Colors.grey.shade200,
@@ -92,7 +96,7 @@ class HomePage extends StatelessWidget {
                               const Center(child: Text("Please add ingredients"))
                               : 
                               Padding(
-                                 padding: const EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 10),
+                                 padding: EdgeInsets.only(top: Get.height/92.6, left: Get.width/21.4, right: Get.width/21.4, bottom: Get.height/92.6),
                                  child: Align(
                                     alignment: Alignment.topLeft,
                                     child: ListView.builder(
@@ -121,7 +125,7 @@ class HomePage extends StatelessWidget {
                            ),
                         ),
                         Positioned(
-                           top: 640,
+                           top: Get.height/1.447,
                            child: HomeRecipeButton()
                         ),
                      ],

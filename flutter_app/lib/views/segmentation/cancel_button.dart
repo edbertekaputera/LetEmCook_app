@@ -32,13 +32,13 @@ class SegmentationCancelButton extends StatelessWidget {
          onPressed: () {
             Get.to(HomePage());
          },
-         child: const Padding(
-            padding: EdgeInsets.only(top: 10, bottom: 10, left: 45, right: 45),
+         child: Padding(
+            padding: EdgeInsets.only(top: Get.height/92.6, bottom: Get.height/92.6, left: Get.width/9.511, right: Get.width/9.511),
             child: Row(
                children: [
-                  Icon(Icons.cancel),
-                  SizedBox(width: 10),
-                  Text(
+                  const Icon(Icons.cancel, color: Colors.white,),
+                  SizedBox(width: Get.width/42.8),
+                  const Text(
                      'Cancel', 
                      style: TextStyle(
                         color: Colors.white,

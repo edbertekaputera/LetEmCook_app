@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 
 class SegmentationServices {
    static var client = http.Client();
+   // static var url = Uri.http("172.20.10.2:5000", "api/image_segment");
    static var url = Uri.http("192.168.50.80:5000", "api/image_segment");
 
    static Future<String> fetchSegmentationJson(Uint8List frame) async {

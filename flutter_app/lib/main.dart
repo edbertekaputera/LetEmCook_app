@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/global_bindings.dart';
 import 'package:flutter_app/views/homepage/home_page.dart';
 import 'package:get/route_manager.dart';
 
@@ -17,7 +16,6 @@ class MyApp extends StatelessWidget {
          debugShowCheckedModeBanner: false,
          home: HomePage(),
          title: "Let Him Cook! App",
-         initialBinding: GlobalBindings(),
       );
    }
 }

@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print
 
+import 'package:flutter_app/views/homepage/home_page.dart';
 import 'package:flutter_app/views/segmentation/segmentation_page.dart';
 import 'package:get/get.dart';
 import 'package:camera/camera.dart';
@@ -39,7 +40,6 @@ class ScanController extends GetxController {
       _cameraController.initialize().then((_) {
          _cameraController.value = _cameraController.value.copyWith(previewSize: const Size(480,480));
          _isInitialized.value = true;
-         _isOn.value = true;
          // Camera Image Stream
          _cameraController.startImageStream((frame) {
             if ( _isOn.value && ++_currentFrameNum % 5 == 0) {
@@ -76,6 +76,12 @@ class ScanController extends GetxController {
       _isOn.value =false;
       print("Stopped");
       Get.to(SegmentationPage(frame: _currentFrame));
+   }
+
+   void cancel() {
+      _isOn.value =false;
+      print("Stopped");
+      Get.to(HomePage());
    }
 
    // Reset
