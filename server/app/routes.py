@@ -1,7 +1,6 @@
 from app import app
 from flask import request
 from app.createRecipes import createRecipes
-import mmcv
 from .segmentation import segment_pipeline, get_label_map, process_image_for_flutter
 import base64
 import torch

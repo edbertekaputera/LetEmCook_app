@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/views/homepage/home_page.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/route_manager.dart';
 
-void main() {
-  runApp(const MyApp());
+Future main() async {
+   await dotenv.load(fileName: "../.env");
+   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
