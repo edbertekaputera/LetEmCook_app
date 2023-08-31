@@ -1,14 +1,17 @@
 import 'dart:convert';
 
 class Recipe {
-  final String dishName;
+  final String dishName, cookingTime, calories, protein;
   final List<String> ingredients;
   final List<String> instructions;
 
   Recipe(
       {required this.dishName,
       required this.ingredients,
-      required this.instructions});
+      required this.instructions,
+      required this.cookingTime,
+      required this.calories,
+      required this.protein});
 }
 
 class RecipeList {
@@ -31,6 +34,9 @@ class RecipeList {
                   (jsonRecipe['ingredients'] as List<dynamic>).cast<String>(),
               instructions:
                   (jsonRecipe['instructions'] as List<dynamic>).cast<String>(),
+               cookingTime: jsonRecipe['cookingTime'],
+               calories: jsonRecipe['calories'],
+               protein: jsonRecipe['protein']
             ))
         .toList();
   }

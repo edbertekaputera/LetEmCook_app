@@ -40,13 +40,13 @@ class SegmentationAddButton extends StatelessWidget {
             
             Get.to(HomePage());
          },
-         child: const Padding(
-            padding: EdgeInsets.only(top: 10, bottom: 10, left: 15, right: 15),
+         child: Padding(
+            padding: EdgeInsets.only(top: Get.height/92.6, bottom: Get.height/92.6, left: Get.width/28.533, right: Get.width/28.533),
             child: Row(
                children: [
-                  Icon(Icons.add_box),
-                  SizedBox(width: 10),
-                  Text(
+                  const Icon(Icons.add_box, color: Colors.white,),
+                  SizedBox(width: Get.width/42.8),
+                  const Text(
                      'Add Ingredients', 
                      style: TextStyle(
                         color: Colors.white,

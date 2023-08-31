@@ -9,9 +9,9 @@ def init_llama():
 
 	CUSTOM_SYSTEM_PROMPT="You are now a professional chef that has expertise in recipe generations"
 	RULES = "Make sure you show the entire procedure for cooking it. Make sure that any extra ingredients you include are commonly found at home. Remember to include the Dish Name header."
-	FORMATTING = "The structure of the recipe shall be split to three sections in the following format. Dish Name:\n Ingredients\n Instructions\n. Make sure the instructions appear in numbered format."
+	FORMATTING = "The structure of the recipe shall be split to five sections in the following format. Dish Name:\n Cooking Time:\n Calories:\n Protein:\n Ingredients\n Instructions\n. Make sure the ingredients appear in bullet format with asterisks. Make sure the instructions appear in numbered format. Make sure the calories and protein are given per serving"
 	SYSTEM_PROMPT = B_SYS + CUSTOM_SYSTEM_PROMPT + RULES + FORMATTING + E_SYS
-	instruction = "Recommend me three different easy to cook homemade recipes with the following ingredients:\n'{ingredients}'"
+	instruction = "Recommend me three different healthy and high-protein recipe that are ideal for athletes and is easy to make with the following ingredients:\n'{ingredients}'"
 
 	template = B_INST + SYSTEM_PROMPT + instruction + E_INST
 

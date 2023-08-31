@@ -17,15 +17,15 @@ class HomeRecipeButton extends StatelessWidget {
                   borderRadius: BorderRadius.circular(25.0),
                )
             ),
-            backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-            foregroundColor: MaterialStateProperty.all<Color>(Colors.blue.shade900),
+            backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
+            foregroundColor: MaterialStateProperty.all<Color>(Colors.red.shade900),
             overlayColor: MaterialStateProperty.resolveWith<Color?>(
                (Set<MaterialState> states) {
                if (states.contains(MaterialState.hovered)) {
-                  return Colors.blue.shade900.withOpacity(0.04);
+                  return Colors.red.shade900.withOpacity(0.04);
                }
                if (states.contains(MaterialState.focused) || states.contains(MaterialState.pressed)) {
-                  return Colors.blue.shade900.withOpacity(0.12);
+                  return Colors.red.shade900.withOpacity(0.12);
                }
                return null; // Defer to the widget's default.
                },
@@ -44,16 +44,17 @@ class HomeRecipeButton extends StatelessWidget {
                Get.to(RecipePage(ingredients: ingredientStr));
             }
          },
-         child: const Padding(
-            padding: EdgeInsets.only(top: 5, bottom: 5, left: 35, right: 35),
+         child: Padding(
+            padding: EdgeInsets.only(top: Get.height/185.2, bottom: Get.height/185.2, left: Get.width/12.229, right: Get.width/12.229),
             child: Row(
                children: [
                   Icon(
                      Icons.food_bank_rounded, 
-                     size: 50,
+                     size: Get.width/8.56,
+                     color: Colors.white,
                   ),
-                  SizedBox(width: 15),
-                  Text(
+                  SizedBox(width: Get.width/28.533),
+                  const Text(
                      'Generate Recipe', 
                      style: TextStyle(
                         color: Colors.white,

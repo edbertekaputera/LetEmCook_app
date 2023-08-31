@@ -37,9 +37,9 @@ def turnRecipesToList(recipes):
 				# clean line from asterisks just in case
 			line = line.replace("*", "")
 			recipeDict["dishName"] = line[11:]
-			
+
 			recipeCounter += 1
-			
+
 		# handle case where it returns **Ingredients**
 		if line.startswith("*") and not line.startswith("**"):
 			ingredientsList.append(line[2:])
@@ -47,12 +47,20 @@ def turnRecipesToList(recipes):
 		# check if line starts with 1. 2. etc
 		if re.search(r"^\d+\.", line):
 			instructionsList.append(line)
+	 
+		if line.startswith("Cooking Time"):
+			recipeDict["cookingTime"] = line[14:]
 
+		if line.startswith("Calories"):
+			recipeDict["calories"] = line[10:]
+
+		if line.startswith("Protein"):
+			recipeDict["protein"] = line[9:]
+		
 		# add last recipe
 		if (i == len(lines) - 1):
 			recipeDict["ingredients"] = ingredientsList
 			recipeDict["instructions"] = instructionsList
 			recipeList.append(recipeDict)
-		
-
+	
 	return recipeList

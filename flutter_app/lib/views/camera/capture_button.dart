@@ -8,12 +8,12 @@ class CaptureButton extends GetView<ScanController> {
    @override
    Widget build(BuildContext context) {
       return Positioned(
-         bottom: 60,
+         bottom: Get.height/15.433,
          child: GestureDetector(
             onTap: () => controller.capture(),
             child: Container(
-               height: 80,
-               width: 80,
+               height: Get.height/11.575,
+               width: Get.width/5.35,
                padding: const EdgeInsets.all(5),
                decoration: BoxDecoration(
                   border: Border.all(color: Colors.white60, width: 5),

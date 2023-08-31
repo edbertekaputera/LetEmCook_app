@@ -24,11 +24,12 @@ class SegmentationPage extends StatelessWidget {
          backgroundColor: Colors.white,
          appBar: AppBar(
             title: const Text("Segmentation Results"),
+            backgroundColor: Colors.red,
             leading: BackButton(
                color: Colors.white,
                onPressed: () {
                   _scanController.reset();
-                  Get.to(const CameraPage());
+                  Get.to(CameraPage());
                },
             ),
          ),
@@ -36,8 +37,23 @@ class SegmentationPage extends StatelessWidget {
             child: GetX<SegmentationController>(
                builder: (controller) {
                   if (controller.isLoading) {
-                     return const Center(
-                        child: CircularProgressIndicator(),
+                     return Center(
+                        child: Column(
+                           mainAxisAlignment: MainAxisAlignment.center,
+                           children: [
+                              const CircularProgressIndicator(),
+                              Padding(
+                                 padding: EdgeInsets.only(top: Get.height/23.15, bottom: Get.height/92.6),
+                                 child: const Text(
+                                    "Segmenting Images...",
+                                    style: TextStyle(
+                                       fontWeight: FontWeight.w500
+                                    ),
+                                 ),
+                              ),
+                              const Text("Please doughnut leave yet!")
+                           ],
+                        ),
                      );
                   } else {
                      return Stack(
@@ -46,10 +62,10 @@ class SegmentationPage extends StatelessWidget {
                            Positioned(
                               top: 0,
                               child: Padding(
-                                padding: const EdgeInsets.only(top: 10.0, bottom: 5),
+                                padding: EdgeInsets.only(top: Get.height/92.6, bottom: Get.height/185.2),
                                 child: Container(
-                                   width: 410,
-                                   height: 400,
+                                   width: Get.width/1.044,
+                                   height: Get.height/2.315,
                                    decoration: BoxDecoration(
                                        image: DecorationImage(
                                           fit: BoxFit.cover,
@@ -62,10 +78,11 @@ class SegmentationPage extends StatelessWidget {
                                 ),
                               ),
                            ),
-                           (controller.data.labels.isNotEmpty)? const Positioned(
-                              top: 425,
-                              left: 15,
-                              child: Text(
+                           (controller.data.labels.isNotEmpty)? 
+                           Positioned(
+                              top: Get.height/2.179,
+                              left: Get.width/28.533,
+                              child: const Text(
                                  "Found Ingredients:",
                                  textAlign: TextAlign.left,
                                  style: TextStyle(
@@ -73,9 +90,9 @@ class SegmentationPage extends StatelessWidget {
                                     color: Colors.black
                                  ),
                               )
-                           ): const Positioned(
-                              top: 550,
-                              child: Text(
+                           ): Positioned(
+                              top: Get.height/1.684,
+                              child: const Text(
                                  "No Ingredients Found!",
                                  textAlign: TextAlign.center,
                                  style: TextStyle(
@@ -85,16 +102,16 @@ class SegmentationPage extends StatelessWidget {
                               )
                            ),
                            Padding(
-                              padding: const EdgeInsets.only(top: 450, bottom: 110),
+                              padding: EdgeInsets.only(top: Get.height/2.058, bottom: Get.height/8.418),
                               child: GridView.builder(
-                                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                                     crossAxisCount: 2,
-                                    crossAxisSpacing: 10,
-                                    mainAxisSpacing: 5,
+                                    crossAxisSpacing: Get.width/42.8,
+                                    mainAxisSpacing: Get.height/185.2,
                                     childAspectRatio: 3.5,
                                  ),
                                  itemCount: controller.data.labels.length,
-                                 padding: const EdgeInsets.all(10),
+                                 padding: EdgeInsets.only(top: Get.height/92.6, bottom:  Get.height/92.6, left: Get.width/42.8, right: Get.width/42.8),
                                  itemBuilder: (context, index) {
                                     return Card(
                                        color: convertHextoColor(controller.data.labels[index]["color"]),
@@ -106,18 +123,18 @@ class SegmentationPage extends StatelessWidget {
                               )
                            ),
                            (controller.data.labels.isEmpty)?
-                           const Positioned(
-                              bottom: 40, 
-                              child: SegmentationCancelButton()
+                           Positioned(
+                              bottom: Get.height/23.15, 
+                              child: const SegmentationCancelButton()
                            ):
                            Positioned(
-                           bottom: 40,
-                           left: 10,
-                           right: 10,
+                           bottom: Get.height/23.15,
+                           left: Get.width/42.8,
+                           right: Get.width/42.8,
                            child: Row(
                               children: [
                                  const Expanded(child: SegmentationCancelButton()),
-                                 const SizedBox(width: 15),
+                                 SizedBox(width: Get.width/28.533),
                                  Expanded(child: SegmentationAddButton()),
                               ],
                            ),
