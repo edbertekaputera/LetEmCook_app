@@ -3,7 +3,7 @@ from langchain import PromptTemplate, LLMChain
 import json
 
 # Initializes Llama
-def init_llama():
+def init_llama(model_path: str):
 	B_INST, E_INST = "[INST]", "[/INST]"
 	B_SYS, E_SYS = "<<SYS>>\n", "\n<</SYS>>\n\n"
 
@@ -20,7 +20,6 @@ def init_llama():
 		input_variables=["ingredients"],
 		template= template)
 	
-	model_path = './model/llama2-7b-chat-q4.bin'
 	llm = LlamaCpp(
 		model_path=model_path,
 		n_gpu_layers=1,
