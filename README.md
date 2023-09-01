@@ -140,3 +140,9 @@ Recipe contents
 - [@edbertekaputera](https://www.github.com/edbertekaputera)
 - [@edkesuma](https://www.github.com/edkesuma)
 - [@tharvus](https://www.github.com/tharvus)
+
+## Citations
+
+- [FoodSeg103 Dataset](https://github.com/LARC-CMU-SMU/FoodSeg103-Benchmark-v1)
+- [Vision Transformer Research](https://github.com/google-research/vision_transformer)
+- [Segmentation Transformer Research](https://github.com/fudan-zvg/SETR)
