@@ -6,5 +6,3 @@ mmcv==2.0.1
 -e ./mmsegmentation/
 opencv-python==4.8.0.76
 python-dotenv==1.0.0
-torch==2.0.1
-torchvision==0.15.2
