@@ -1,5 +1,5 @@
 Flask==2.3.3
-langchain==0.0.273
+langchain>=0.1.0
 llama-cpp-python==0.1.78
 mmengine==0.8.4
 mmcv==2.0.1
